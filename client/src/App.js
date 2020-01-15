@@ -2,24 +2,15 @@ import React from 'react';
 import './App.css';
 
 import Jobs from './Jobs';
-import fetch from 'node-fetch';
 
-const JOB_API_URL = 'http://localhost:3001/jobs'
-
-// const mockJobs = [
-//   {title: 'SWE 1', company: 'Google'},
-//   {title: 'SWE 1', company: 'Facebook'},
-//   {title: 'SWE 1', company: 'Apple'}
-// ]
+const JOB_API_URL = 'http://localhost:3001/api/jobs';
 
 async function fetchJobs(updateCb) {
   const res = await fetch(JOB_API_URL);
-  const json = await res.json();
-
+  let json = await res.json();
+  console.log(json);
   updateCb(json);
-
 }
-
 
 function App() {
 
